@@ -1,0 +1,62 @@
+#carroDeCompras{
+    width:2em;
+    padding-top: 1.5em;
+    padding-bottom: 0em;
+}
+
+#numItems{
+    size: 2em;
+    padding-top: 1.5em;
+    padding-bottom: 0em;
+}
+
+.food{
+    height: 10em;
+    margin-top: 0.5em
+}
+
+#banner{
+    width: 100%;
+}
+
+#logo{
+    font-family: 'Satisfy', cursive;
+    padding-top: 0.5em;
+    padding-bottom: 0em;
+    margin: 0em;
+}
+
+nav{
+    padding: 0;
+}
+
+.categories{
+    background: #474747;
+    padding: 1.5em;
+}
+
+.category{
+    text-decoration: none;
+    color:#FFF;
+    margin: 0em;
+}
+
+#categ{
+    text-align: center
+}
+
+.tarjeta{
+    margin: 0.5em
+}
+
+.AddToCart{
+    color: #FFF;
+    background: #474747;
+}
+
+.mod{
+    color: #FFF;
+    background: #474747;
+    margin:0.1rem;
+}
+
