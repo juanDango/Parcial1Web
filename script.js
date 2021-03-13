@@ -1,5 +1,9 @@
 url = "data.json";
 
+let createModalButton = "<button type='button' class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#staticBackdrop'>\
+Cancelar\
+</button>"
+
 let addToCart;
 
 let addMore;
@@ -11,6 +15,9 @@ let actCateg = "Burguers"
 let amountOfFood = 0;
 
 let confirm;
+
+let cancel;
+
 let total = 0;
 
 const myFunction = element => {
@@ -49,7 +56,7 @@ const verCarrito = element => {
     <td></td>\
     <td></td>\
     <td></td>\
-    <td><a href=\"#\" class=\"mod btn btn-danger\">Cancel</a><a id ='Confirm' href=\"#\" class=\"mod btn btn-success\">Confirm Order</a></td>\
+    <td><a href=\"#\" id = 'Confirm' class=\"btn btn-success\">Confirm</a>" + createModalButton + "\
     </tbody>\
     </table>\
     </div>"
@@ -57,11 +64,23 @@ const verCarrito = element => {
     categ.innerHTML = "Order Detail"
     addMore = document.getElementsByClassName("add")
     confirm = document.getElementById("Confirm");
+    cancel = document.getElementById("Cancel");
     confirm.onclick = confirmar
     let l = addMore.length
     for(let i = 0; i<l; i++){
         addMore.item(i).onclick = addToProduct
     }
+    let yes = document.getElementById("Yes")
+    yes.onclick = ()=>{
+        foodInCart=[]
+        verCarrito()
+        amountOfFood = 0;
+        numItems.innerHTML = amountOfFood + " items"
+    }
+}
+
+const cancelar = element =>{
+
 }
 
 const confirmar = element => {
@@ -138,7 +157,7 @@ const getElementsOfType = (type) => {
             <div class=\"card-body\">\
             <h5 class=\"card-title\">" + product.name +"</h5>\
             <p class=\"card-text\">"+ product.description + "</p>\
-            <strong>" + product.price + "</strong>\
+            <strong>$" + product.price + "</strong>\
             <br>\
             <a href=\"#\" id = '" + product.name.replace(/\s/g, '') + "' class=\"AddToCart btn \">Add To Cart</a>\
             </div>\
@@ -181,3 +200,13 @@ desserts.onclick = myFunction
 drinks.onclick = myFunction
 cart.onclick = verCarrito
 
+var modal = null
+ function pop() {
+   if(modal === null) {
+     document.getElementById("box").style.display = "block";
+     modal = true
+   } else {
+     document.getElementById("box").style.display = "none";
+     modal = null
+   }
+ }
