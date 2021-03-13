@@ -42,6 +42,7 @@ const verCarrito = () => {
     <thead>\
     <tr>\
     <th>Item</th>\
+    <th>Quantity</th>\
     <th>Description</th>\
     <th>Unit Price</th>\
     <th>Ammount</th>\
@@ -53,13 +54,15 @@ const verCarrito = () => {
   // subi para eliminar un producto
   for(let i = 0; i < foodInCart.length; i++) {
     let product = foodInCart[i];
-    total += product.unitPrice*product.ammount;
+    let ammount = product.quantity * product.unitPrice;
+    total += product.unitPrice*product.quantity;
     let item = i+1;
     string += "<tr id = 'row"+item+"'>\
         <th scope='row'>"+ item +"</th>\
+        <td id ='amo"+i+"'>"+ product.quantity +"</td>\
         <td>"+product.description+"</td>\
         <td>"+product.unitPrice+"</td>\
-        <td id = 'amo"+i+"'>"+product.ammount+"</td>\
+        <td id = 'am"+i+"'>"+ammount+"</td>\
         <td><a href=\"#\" id = 'add"+i+"' class=\"mod add btn\">+</a><a href=\"#\" id = 'sub"+i+"' class=\"mod add btn\">-</a></td>\
       </tr>";
   }
@@ -114,12 +117,12 @@ const addFood = element =>{
     let item = foodInCart.find(product => product.description.replace(/\s/g, "")===element.srcElement.id);
     // Si ya está, aumentamos en 1 la cantidad, de lo contrario, creamos un item y lo añadimos con cantidad 1
     if(item) {
-      item.ammount ++;
+      item.quantity ++;
     }else{
       item = {
         description: product.name,
         unitPrice: product.price,
-        ammount: 1
+        quantity: 1
       };
       foodInCart.push(item);
     }
@@ -145,28 +148,32 @@ const addToProduct = event =>{
   let tot = document.getElementById("total");
   // Obtenemos el producto a eliminar
   let product = foodInCart[i];
+
+  let ammount = document.getElementById("am"+i);
   // Si el producto está
   if(product) {
     // Si la operación es añadir, añadimos al carro, aumentamos la cantidad de comida de i
     // Y se actualiza el DOM
     if(operation === "add") {
-      foodInCart[i].ammount ++;
-      ammToChange.innerHTML = foodInCart[i].ammount;
+      foodInCart[i].quantity ++;
+      ammToChange.innerHTML = foodInCart[i].quantity;
       total += product.unitPrice;
       tot.innerHTML = "Total: $"+total;
+      ammount.innerHTML = foodInCart[i].quantity*foodInCart[i].unitPrice;
       amountOfFood ++;
     }
     // Si la operación es eliminar
     else if(operation ==="sub") {
       // Si ya es el último elemento, lo eliminamos de la lista y actualizamos la tabla
-      if(foodInCart[i].ammount===1) {
+      if(foodInCart[i].quantity===1) {
         foodInCart.splice(i, 1);
         verCarrito("HolaMundo");
       }
       // Si no es el último, solo quitamos
       else{
-        foodInCart[i].ammount --;
-        ammToChange.innerHTML = foodInCart[i].ammount;
+        foodInCart[i].quantity--;
+        ammToChange.innerHTML = foodInCart[i].quantity;
+        ammount.innerHTML = foodInCart[i].quantity*foodInCart[i].unitPrice;
       }
       // Actualizamos el precio, y la cantidad de comida
       total -= product.unitPrice;
