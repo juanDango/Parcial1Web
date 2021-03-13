@@ -12,71 +12,62 @@
 </head>
 <body>
     <div class = "container">
-    <nav>
-        <div class = "row">
-            <div class = "col-5">
-                <h1 id = "logo">Restaurant And Lounge</h1>
+        <nav>
+            <div class = "row">
+                <div class = "col-5">
+                    <h1 id = "logo">Restaurant And Lounge</h1>
+                </div>
+                <div class = "col-5"></div>
+                <div class = "col-1">
+                    <img id = "carroDeCompras" src = "https://i.imgur.com/1EKrQIi.png" alt = "carrito de compras">
+                </div>
+                <div class ="col-1">
+                    <p id = "numItems">0 items</p>
+                </div>
             </div>
-            <div class = "col-5"></div>
-            <div class = "col-1">
-                <img id = "carroDeCompras" src = "https://i.imgur.com/1EKrQIi.png" alt = "carrito de compras">
+        </nav>
+        <hr>
+        <main>
+            <div class = "row">
+                <div class = col-12>
+                    <img id = "banner" src = "https://i.imgur.com/S8Ffdqa.png" alt = "Banner">
+                </div>
             </div>
-            <div class ="col-1">
-                <p id = "numItems">0 items</p>
+            <hr>
+            <div id = "categories" class = "row categories">
             </div>
-        </div>
-    </nav>
-    <hr>
-    <div class = "row">
-        <div class = col-12>
-            <img id = "banner" src = "https://i.imgur.com/S8Ffdqa.png" alt = "Banner">
-        </div>
+            <hr>
+            <div class = "row">
+                <div class="col-12">
+                    <h2 id = "categ">Burguers</h2>
+                </div>
+            </div>
+            <hr>
+            <div id = "cuerpo" class = "d-flex justify-content-center">
+            </div>
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel">Cancel The Order</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p id = "Mensaje">Are you sure about canceling the order</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button id = "Yes" type="button" class="btn btn-success" data-bs-dismiss="modal">Yes, i want to cancel the order</button>
+                            <button id = "No" type="button" class="btn btn-danger" data-bs-dismiss="modal">No, i want to continue adding products</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
     <hr>
-    <div class = "row categories">
-        <div class = "col-1">
-            <a id = "Burger" class = "category">Burguers</a>
-        </div>
-        <div class = "col-1">
-            <a id = "Tacos" class = "category">Tacos</a>
-        </div>
-        <div class = "col-1">
-            <a id = "Salads" class = "category">Salads</a>
-        </div>
-        <div class = "col-1">
-            <a id = "Desserts" class = "category">Desserts</a>
-        </div>
-        <div class = "col-2">
-            <a id = "Drinks" class = "category">Drinks and Sides</a>
-        </div>
-    </div>
-    <hr>
-    <div class = "row">
-        <div class="col-12">
-            <h1 id = "categ">Burguers</h1>
-        </div>
-    </div>
-    <hr>
-    <div id = "cuerpo">
-    </div>
-    </div>
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Cancel The Order</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p id = "Mensaje">Are you sure about canceling the order</p>
-            </div>
-            <div class="modal-footer">
-              <button id = "Yes" type="button" class="btn btn-success" data-bs-dismiss="modal">Yes, i want to cancel the order</button>
-              <button id = "No" type="button" class="btn btn-danger" data-bs-dismiss="modal">No, i want to continue adding products</button>
-            </div>
-          </div>
-        </div>
-      </div>
+    <footer>
+        Contact us: +57 48021387821 - info@restaurant.com - @restaurant
+    </footer>
     <script src = "script.js"></script>
 </body>
 </html>
